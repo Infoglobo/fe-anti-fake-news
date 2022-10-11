@@ -1,11 +1,11 @@
 'use strict'
 
 const elementListeners = [
-    '.title h1',
-    '.content-head__subtitle'
+    '.class-selector',
+    '#id-selector'
 ]
 
-const img = 'https://s3.glbimg.com/v1/AUTH_d0df7b2a29084a86bbc7426a0709d06a/generic/anti-fake-news/fake.jpg'
+const img = ''
 
 elementListeners.forEach(el => {
     console.log(el);
