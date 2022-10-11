@@ -16,6 +16,5 @@ elementListeners.forEach(el => {
 })
 
 function changeBg() {
-    console.log('aquiii');
     document.body.style.backgroundImage = `url("${img}")`, document.body.style.repeat = "repeat"
 }
