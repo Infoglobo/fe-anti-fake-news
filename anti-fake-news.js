@@ -7,14 +7,32 @@ const elementListeners = [
 
 const img = ''
 
+const originalTitle = document.querySelector('title').innerText
+
+//Apply vaccine
 elementListeners.forEach(el => {
-    console.log(el);
     document.querySelector(el).addEventListener('DOMCharacterDataModified', (e) => {
         changeBg()
-        //console.log(e)
     })
 })
 
 function changeBg() {
-    document.body.style.backgroundImage = `url("${img}")`, document.body.style.repeat = "repeat"
+    if (!checkIfTranslated())
+        document.body.style.backgroundImage = `url("${img}")`, document.body.style.repeat = "repeat"
+}
+
+function checkIfTranslated() {
+    //chrome
+    if (document.querySelector('html').classList.contains('translated-ltr'))
+        return true
+
+    //edge
+    if (document.querySelector('title').getAttribute('_msthash'))
+        return true
+
+    //others
+    if (document.querySelector('title').innerText != originalTitle)
+        return true
+
+    return false;
 }
